@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WAG Portal | Office MEP Hub</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="logo-row">
+        <div class="logo-mark">WAG</div>
+        <div class="logo-text">
+          <div class="title">WAG Portal</div>
+          <div class="subtitle">MEP Design Office</div>
+        </div>
+        <button class="icon-btn" id="collapseSidebar" aria-label="Collapse menu">&#8592;</button>
+      </div>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#office-updates" class="nav-link">Office Updates</a>
+        <a href="#employee-hub" class="nav-link">Employee Hub</a>
+        <a href="#program-calendar" class="nav-link">Program Calendar</a>
+        <a href="#tech-knowledge" class="nav-link">Tech Knowledge</a>
+        <a href="#shared-facilities" class="nav-link">Shared Facilities</a>
+        <a href="#wellbeing" class="nav-link">Wellbeing</a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="signin-status" id="signinStatus">Guest access</div>
+        <button class="primary-btn" id="openSignin">Sign in</button>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <button class="icon-btn" id="openSidebar" aria-label="Expand menu">&#9776;</button>
+        <div class="page-title">WAG Portal</div>
+        <div class="top-actions">
+          <div class="badge muted" id="roleBadge">Visitor</div>
+          <button class="ghost-btn" id="openSigninTop">Sign in</button>
+        </div>
+      </header>
+
+      <section id="home" class="panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Home</p>
+            <h1>Welcome to WAG Portal</h1>
+            <p class="muted">Professional workspace for office updates, employee services, schedules, and wellbeing monitoring.</p>
+          </div>
+          <div class="quick-actions">
+            <button class="ghost-btn" id="refreshMetrics">Refresh metrics</button>
+          </div>
+        </div>
+
+        <div class="grid shortcuts" aria-label="Module shortcuts">
+          <button class="shortcut" data-target="#office-updates">Office Updates</button>
+          <button class="shortcut" data-target="#employee-hub">Employee Hub</button>
+          <button class="shortcut" data-target="#program-calendar">Program Calendar</button>
+          <button class="shortcut" data-target="#tech-knowledge">Tech Knowledge</button>
+          <button class="shortcut" data-target="#shared-facilities">Shared Facilities</button>
+          <button class="shortcut" data-target="#wellbeing">Wellbeing</button>
+        </div>
+
+        <div class="grid stats" id="homeStats" aria-label="Dashboard summaries"></div>
+
+        <div class="panel-card">
+          <div class="panel-card-header">
+            <div>
+              <p class="eyebrow">Activity</p>
+              <h2>Recent activities</h2>
+            </div>
+            <button class="ghost-btn" id="clearActivities">Clear</button>
+          </div>
+          <ul class="activity-list" id="activityList"></ul>
+        </div>
+      </section>
+
+      <section id="office-updates" class="panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Office</p>
+            <h1>Office Updates</h1>
+            <p class="muted">News, policy changes, and quick polls for the team.</p>
+          </div>
+          <div class="view-toggle" data-target="officeView">
+            <button class="ghost-btn active" data-view="grid">Grid</button>
+            <button class="ghost-btn" data-view="list">List</button>
+          </div>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Office update modes">
+          <button class="tab active" data-target="office-news">News</button>
+          <button class="tab" data-target="office-policies">Policy Updates</button>
+          <button class="tab" data-target="office-polls">Polls</button>
+        </div>
+        <div id="office-news" class="tab-panel active" data-view="grid"></div>
+        <div id="office-policies" class="tab-panel" data-view="grid"></div>
+        <div id="office-polls" class="tab-panel" data-view="grid"></div>
+      </section>
+
+      <section id="employee-hub" class="panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Services</p>
+            <h1>Employee Hub</h1>
+            <p class="muted">Track requests and operational tasks.</p>
+          </div>
+          <div class="view-toggle" data-target="employeeView">
+            <button class="ghost-btn active" data-view="grid">Grid</button>
+            <button class="ghost-btn" data-view="list">List</button>
+          </div>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Employee hub modes">
+          <button class="tab active" data-target="leave-requests">Leave Requests</button>
+          <button class="tab" data-target="item-requests">Item Requests</button>
+          <button class="tab" data-target="defect-reports">Defect Reports</button>
+        </div>
+        <div id="leave-requests" class="tab-panel active" data-view="grid"></div>
+        <div id="item-requests" class="tab-panel" data-view="grid"></div>
+        <div id="defect-reports" class="tab-panel" data-view="grid"></div>
+      </section>
+
+      <section id="program-calendar" class="panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Schedules</p>
+            <h1>Program Calendar</h1>
+            <p class="muted">Plan internal meetings, workshops, trainings, and events.</p>
+          </div>
+          <div class="view-toggle" data-target="programView">
+            <button class="ghost-btn active" data-view="grid">Grid</button>
+            <button class="ghost-btn" data-view="list">List</button>
+          </div>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Program calendar modes">
+          <button class="tab active" data-target="internal-meetings">Internal Meetings</button>
+          <button class="tab" data-target="workshops">Workshops</button>
+          <button class="tab" data-target="trainings">Trainings</button>
+          <button class="tab" data-target="events">Events</button>
+        </div>
+        <div id="internal-meetings" class="tab-panel active" data-view="grid"></div>
+        <div id="workshops" class="tab-panel" data-view="grid"></div>
+        <div id="trainings" class="tab-panel" data-view="grid"></div>
+        <div id="events" class="tab-panel" data-view="grid"></div>
+      </section>
+
+      <section id="tech-knowledge" class="panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Knowledge</p>
+            <h1>Tech Knowledge</h1>
+            <p class="muted">Share learnings with references, media, and files.</p>
+          </div>
+          <div class="view-toggle" data-target="techView">
+            <button class="ghost-btn active" data-view="grid">Grid</button>
+            <button class="ghost-btn" data-view="list">List</button>
+          </div>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Tech knowledge categories">
+          <button class="tab active" data-target="tech-ee">EE</button>
+          <button class="tab" data-target="tech-hvac">HVAC</button>
+          <button class="tab" data-target="tech-sn">SN</button>
+          <button class="tab" data-target="tech-fp">FP</button>
+          <button class="tab" data-target="tech-cad">CAD / Revit</button>
+          <button class="tab" data-target="tech-other">Other</button>
+        </div>
+        <div id="tech-ee" class="tab-panel active" data-view="grid"></div>
+        <div id="tech-hvac" class="tab-panel" data-view="grid"></div>
+        <div id="tech-sn" class="tab-panel" data-view="grid"></div>
+        <div id="tech-fp" class="tab-panel" data-view="grid"></div>
+        <div id="tech-cad" class="tab-panel" data-view="grid"></div>
+        <div id="tech-other" class="tab-panel" data-view="grid"></div>
+        <div class="panel-card calendar">
+          <div class="panel-card-header">
+            <div>
+              <p class="eyebrow">Knowledge sessions</p>
+              <h2>Calendar view</h2>
+            </div>
+          </div>
+          <div id="techCalendar" class="calendar-grid"></div>
+        </div>
+      </section>
+
+      <section id="shared-facilities" class="panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Facilities</p>
+            <h1>Shared Facilities</h1>
+            <p class="muted">Reserve meeting rooms and Zoom accounts.</p>
+          </div>
+          <div class="view-toggle" data-target="facilityView">
+            <button class="ghost-btn active" data-view="grid">Grid</button>
+            <button class="ghost-btn" data-view="list">List</button>
+          </div>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Shared facility modes">
+          <button class="tab active" data-target="rooms">Meeting Rooms</button>
+          <button class="tab" data-target="zoom">Zoom Accounts</button>
+          <button class="tab" data-target="my-reservations">My Reservations</button>
+          <button class="tab" data-target="all-reservations">All Reservations</button>
+        </div>
+        <div id="rooms" class="tab-panel active" data-view="grid"></div>
+        <div id="zoom" class="tab-panel" data-view="grid"></div>
+        <div id="my-reservations" class="tab-panel" data-view="grid"></div>
+        <div id="all-reservations" class="tab-panel" data-view="grid"></div>
+        <div class="panel-card calendar">
+          <div class="panel-card-header">
+            <div>
+              <p class="eyebrow">Usage</p>
+              <h2>Calendar view</h2>
+            </div>
+          </div>
+          <div id="facilityCalendar" class="calendar-grid"></div>
+        </div>
+      </section>
+
+      <section id="wellbeing" class="panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Environment</p>
+            <h1>Wellbeing</h1>
+            <p class="muted">Real-time monitoring for indoor environmental quality.</p>
+          </div>
+          <div class="view-toggle" data-target="wellbeingView">
+            <button class="ghost-btn active" data-view="grid">Grid</button>
+            <button class="ghost-btn" data-view="list">List</button>
+          </div>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Wellbeing metrics">
+          <button class="tab active" data-target="air-quality">Air quality</button>
+          <button class="tab" data-target="noise">Noise</button>
+          <button class="tab" data-target="illumination">Illumination</button>
+          <button class="tab" data-target="power">Power</button>
+        </div>
+        <div id="air-quality" class="tab-panel active" data-view="grid"></div>
+        <div id="noise" class="tab-panel" data-view="grid"></div>
+        <div id="illumination" class="tab-panel" data-view="grid"></div>
+        <div id="power" class="tab-panel" data-view="grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal" id="signinModal" role="dialog" aria-modal="true" aria-labelledby="signinTitle" hidden>
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">Access</p>
+          <h2 id="signinTitle">Sign in</h2>
+        </div>
+        <button class="icon-btn" id="closeSignin" aria-label="Close">&#10005;</button>
+      </div>
+      <form id="signinForm" class="form-grid">
+        <label>
+          <span>Role</span>
+          <select name="role" required>
+            <option value="User">User</option>
+            <option value="Admin">Admin</option>
+          </select>
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" placeholder="name@wag.com" required />
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password" name="password" placeholder="••••••••" required />
+        </label>
+        <div class="form-actions">
+          <button type="button" class="ghost-btn" id="cancelSignin">Cancel</button>
+          <button type="submit" class="primary-btn">Sign in</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
